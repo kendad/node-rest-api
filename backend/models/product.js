@@ -59,6 +59,7 @@ const productSchema=new mongoose.Schema({
 })
 
 
+
 //Model
 Product=mongoose.model('Product',productSchema);//"Product" is the collection name on the MongoDB
 
