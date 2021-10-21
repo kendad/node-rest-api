@@ -58,7 +58,14 @@ const productSchema=new mongoose.Schema({
     }
 })
 
+//Virtual
+productSchema.virtual('id').get(function(){
+    return this._id.toHexString();
+});
 
+productSchema.set('toJSON',{
+    virtuals:true
+})
 
 //Model
 Product=mongoose.model('Product',productSchema);//"Product" is the collection name on the MongoDB

@@ -11,7 +11,7 @@ router.get(`/`,async (req,res)=>{
         filter={category:req.query.categories.split(',')};
     }
 
-    const productList= await Product.find(filter).select('name image -_id').populate('category');//get only the name and image and no id
+    const productList= await Product.find(filter).select('name image').populate('category');//get only the name and image and no id[use a - symbol for the field that you dont want]
     if(!productList){
         res.status(500).json({success:false});
     }else{

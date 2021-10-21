@@ -15,6 +15,7 @@ const categorySchema=new mongoose.Schema({
 })
 
 
+
 //Model
 Category=mongoose.model('Category',categorySchema);
 
