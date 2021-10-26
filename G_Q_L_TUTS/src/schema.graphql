@@ -52,6 +52,13 @@
         author:ID!
         post:ID!
     }
+
+#####SUBSCRIPTION##########
+
+    type Subscription{
+        comment(postID:ID!):CommentSubscriptionPayload!
+        post:PostSubscriptionPayload!
+    }
     
 ####CUSTOM TYPES#####
 
@@ -78,4 +85,20 @@
         text:String!
         author:User!
         post:Post!
+    }
+
+    enum MutationType{
+        CREATED
+        DELETED
+        UPDATED
+    }
+
+    type PostSubscriptionPayload{
+        mutation:MutationType!
+        data:Post!
+    }
+
+    type CommentSubscriptionPayload{
+        mutation:MutationType!
+        data:Comment!
     }
